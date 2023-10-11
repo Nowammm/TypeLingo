@@ -12,4 +12,4 @@ With just a click, this extension brings back the precious ability to type your 
 2. If needed, temporarily switch to the "Old" mode until a bug fix is available (mode changing is in the extension's popup window).
 
 # License
-Commercial use or distribution of the software is FORBIDDEN unless given permission by me to do so.
+Commercial use or distribution of the software is FORBIDDEN unless given permission to do so.
