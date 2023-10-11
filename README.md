@@ -12,7 +12,7 @@ With just a click, this extension brings back the precious ability to type your 
 2. If needed, temporarily switch to the "Old" mode until a bug fix is available (mode changing is in the extension's popup window).
 
 # Building the source code
-You may install the extension through the extension through the Chrome Web Store. However, you can build the source code yourself.
+You may install the extension through the Chrome Web Store. However, you can build the source code yourself.
 
 Keep in mind that commercial use or distribution of the extension is **NOT** allowed, as stated in the "License" section. You may also keep in mind that once the extension receives an update, you will need to build it once more.
 
