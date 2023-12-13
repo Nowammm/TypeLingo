@@ -71,16 +71,15 @@ async function handleRedirects(sources) {
             var type1 = src;
             
             const fileName = type1.slice(type1.lastIndexOf('/') + 1);
-            const modifyIndex = text.indexOf("{canToggleTyping:!1,isToggledToTyping:!1}", text.indexOf("case u.Sm.Translate:return")); // Search for “case u.Sm.Translate:return” and then the first following occurrence of “{canToggleTyping:!1,isToggledToTyping:!1}”
-            const modifiedContent = text.replaceAt(modifyIndex, modifyIndex + "{canToggleTyping:!1,isToggledToTyping:!1}".length, "{canToggleTyping:!0,isToggledToTyping:e.typingEnabled}");
-            
+            const modifiedContent = text.replace(/{canToggleTyping:!1,isToggledToTyping:!1}/g, "{canToggleTyping:!0,isToggledToTyping:e.typingEnabled}"); // Replace all instances of "{canToggleTyping:!1,isToggledToTyping:!1}" with "{canToggleTyping:!0,isToggledToTyping:e.typingEnabled}"
+
             var modifiedType1 = await uploadToFirebase(fileName, modifiedContent);
         }
         else if (text.includes(".Translate]:{Container:")) { // Type 2
             var type2 = src;
             
             const fileName = type2.slice(type2.lastIndexOf('/') + 1);
-            const match = text.matchFrom(/\?"-character":""\)\]\},[a-zA-Z]+\|\|!/, text.indexOf(".Translate]:{Container:")); // Search for “.Translate]:{Container:” and then the first following occurrence of “?"-character":"")]},y||!”
+            const match = text.matchFrom(/\?"-character":""\)\]\},[a-zA-Z]+\|\|!/, text.indexOf(".Translate]:{Container:")); // Search for “.Translate]:{Container:” and then the first following occurrence of “?"-character":"")]},x||!”
             const modifyIndex = match.index;
             const modifyWord = match[0];
             const modifiedContent = text.replaceAt(modifyIndex + modifyWord.length - 4, modifyIndex + modifyWord.length, "!"); // Replace last four characters with !
@@ -88,7 +87,7 @@ async function handleRedirects(sources) {
             var modifiedType2 = await uploadToFirebase(fileName, modifiedContent);
         }
     }
-    
+
     if (modifiedType1 != null && modifiedType2 != null) {
         chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: [1, 2],
