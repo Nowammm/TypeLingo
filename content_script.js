@@ -140,16 +140,16 @@ function AddKeyboard() {
     newDiv.setAttribute("class", "GE35t");
 
     const newButton = document.createElement("button");
-    newButton.setAttribute("class", "_1H_R6 _1ZefG _29cJe");
+    newButton.setAttribute("class", "_1eJKW _16r-S _29cJe");
     newButton.setAttribute("data-test", "player-toggle-keyboard");
         
     const newImg = document.createElement("img");
-    newImg.setAttribute("class", "_13_rw _13HXc");
-    newImg.setAttribute("src", "https://d35aaqx5ub95lt.cloudfront.net/images/05087a35a607783111e11cb81d1fcd33.svg"); // Keyboard icon
+    newImg.setAttribute("class", "_13_rw _1fHYG");
+    newImg.setAttribute("src", IsInLightMode() ? "https://d35aaqx5ub95lt.cloudfront.net/images/05087a35a607783111e11cb81d1fcd33.svg" : "https://d35aaqx5ub95lt.cloudfront.net/images/e786c05c2a908e9f919f51fb14fc950c.svg"); // Keyboard icon
     toggleButtonIcon = newImg;
-
+    
     const newSpan = document.createElement("span");
-    newSpan.setAttribute("class", "yWRY8 _3yAjN _13HXc");
+    newSpan.setAttribute("class", "yWRY8 _3yAjN _1fHYG");
     newSpan.textContent = "Use keyboard";
     toggleButtonText = newSpan;
 
@@ -222,14 +222,17 @@ function ToggleButtonClicked() {
     isTyping = !isTyping;
     
     SetExerciseStyle();
-
-    toggleButtonIcon.setAttribute("src", isTyping ? "https://d35aaqx5ub95lt.cloudfront.net/images/c9419412ddecf0c0b2fe03771997af21.svg" : "https://d35aaqx5ub95lt.cloudfront.net/images/05087a35a607783111e11cb81d1fcd33.svg");
-    toggleButtonText.textContent = isTyping ? "Use word bank" : "Use keyboard";
-        
+    
     if (isTyping) {
-         EnableCheck(currentTextArea.children[0].textContent != "");
+        toggleButtonIcon.setAttribute("src", IsInLightMode() ? "https://d35aaqx5ub95lt.cloudfront.net/images/c9419412ddecf0c0b2fe03771997af21.svg" : "https://d35aaqx5ub95lt.cloudfront.net/images/b8172c10b8715137fd6992ac32a50002.svg");
+        toggleButtonText.textContent = "Use word bank";
+
+        EnableCheck(currentTextArea.children[0].textContent != "");
     }
     if (!isTyping) {
+        toggleButtonIcon.setAttribute("src", IsInLightMode() ? "https://d35aaqx5ub95lt.cloudfront.net/images/05087a35a607783111e11cb81d1fcd33.svg" : "https://d35aaqx5ub95lt.cloudfront.net/images/e786c05c2a908e9f919f51fb14fc950c.svg");
+        toggleButtonText.textContent = "Use keyboard";
+
         EnableCheck(GetElementWithClass("LhRk3 WOZnx _275sd _1ZefG notranslate _6Nozy _1O290 _2HRY_ _2N8UY _2mDNn") != null);
     }
 }
@@ -240,13 +243,17 @@ function EnableCheck(value) {
     if (value == true) {
         // Enable check button
         checkButton.setAttribute("aria-disabled", "false");
-        checkButton.setAttribute("class", "_3HhhB _2NolF _275sd _1ZefG _2orIw _3PphB _9C_ii");
+        checkButton.setAttribute("class", "_30qMV _2N_A5 _36Vd3 _16r-S _2orIw _3PphB _9C_ii");
     }
     else {
         // Disable check button
         checkButton.setAttribute("aria-disabled", "true");
-        checkButton.setAttribute("class", "LhRk3 _3HhhB _2NolF _275sd _1ZefG _2orIw _3PphB _9C_ii");
+        checkButton.setAttribute("class", "_33Jbm _30qMV _2N_A5 _36Vd3 _16r-S _2orIw _3PphB _9C_ii");
     }
+}
+
+function IsInLightMode() {
+    return document.documentElement.getAttribute("data-duo-theme") == "light";
 }
 
 function WarningSystem() {
