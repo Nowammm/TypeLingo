@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener(
 function Start() {
     // Lesson finished
     WaitForElement(".WOZnx._275sd._1ZefG._2ugbF.U1P3s._40EaN").then((element) => {
-        if (GetElementWithClass("GE35t") != null) GetElementWithClass("GE35t").remove() // Remove toggle button
+        if (GetElementWithClass("_3fGeO") != null) GetElementWithClass("_3fGeO").remove() // Remove toggle button
     });
     
 }
@@ -31,10 +31,10 @@ function Start() {
 function Update() {
     if (!IsCorrectExercise()) Reset();
 
-    if (IsCorrectExercise() && !isTransformed && GetElementWithClass("FA030") == null) {
+    if (IsCorrectExercise() && !isTransformed && GetElementWithClass("PEm85") == null) {
         isTransformed = true;
         
-        currentWordBank = GetElementWithClass("tVzIv");
+        currentWordBank = GetElementWithData('word-bank');
     
         AddKeyboard();
     
@@ -45,7 +45,7 @@ function Update() {
     
         // Skip button
         WaitForElement('._2XF-t').then((element) => {
-            element.addEventListener("click", () => { GetElementWithClass("GE35t").remove(); checked = true; });
+            element.addEventListener("click", () => { GetElementWithClass("_3fGeO").remove(); checked = true; });
         });
     }
 };
@@ -104,7 +104,7 @@ function SetExerciseStyle() {
         currentTextArea.children[0].focus();
 
         // Remove added words
-        const addedWordsButtons = GetElementWithClass("_2PLYW").querySelectorAll("button");
+        const addedWordsButtons = GetElementWithClass("_1Ga4w").querySelectorAll("button");
         addedWords = [];
         addedWordsButtons.forEach(element => {
             addedWords.push(element.getAttribute("data-test"));
@@ -133,11 +133,11 @@ function SetExerciseStyle() {
 }
 
 function AddKeyboard() {
-    if (!IsCorrectExercise() || currentTextArea != null || GetElementWithClass("GE35t") != null) return;
+    if (!IsCorrectExercise() || currentTextArea != null || GetElementWithClass("_3fGeO") != null) return;
     
     // Toggle button
     const newDiv = document.createElement("div");
-    newDiv.setAttribute("class", "GE35t");
+    newDiv.setAttribute("class", "_3fGeO");
 
     const newButton = document.createElement("button");
     newButton.setAttribute("class", "_1eJKW _16r-S _29cJe");
@@ -149,17 +149,19 @@ function AddKeyboard() {
     toggleButtonIcon = newImg;
     
     const newSpan = document.createElement("span");
-    newSpan.setAttribute("class", "yWRY8 _3yAjN _1fHYG");
+    newSpan.setAttribute("class", "_5_1uD _2Rt1l _1fHYG");
     newSpan.textContent = "Use keyboard";
     toggleButtonText = newSpan;
 
     newButton.appendChild(newImg);
     newButton.appendChild(newSpan);
     newDiv.appendChild(newButton);
-    GetElementWithClass("_3FAc4 _2T5D2").appendChild(newDiv); // Put div inside the skip and check buttons' parent
+
+    // Put div inside the skip and check buttons' parent
+    document.getElementById('session/PlayerFooter').firstChild.appendChild(newDiv)
 
     // Wait for skip button and then reposition button
-    WaitForElement('._2XF-t').then(() => {
+    WaitForElement(`[data-test="player-skip"]`).then(() => {
         newDiv.after(newDiv.previousElementSibling);
     });
 
@@ -167,7 +169,7 @@ function AddKeyboard() {
 
     // Text area
     const newTextAreaDiv = document.createElement("div");
-    newTextAreaDiv.setAttribute("class", "FA030");
+    newTextAreaDiv.setAttribute("class", "PEm85");
     
     const newTextArea = document.createElement("div");
     newTextArea.setAttribute("contenteditable", "true");
@@ -177,7 +179,7 @@ function AddKeyboard() {
     newTextArea.setAttribute("autocomplete", "off");
     newTextArea.setAttribute("autocorrect", "off");
     newTextArea.setAttribute("spellcheck", "false");
-    newTextArea.setAttribute("class", "_2EMUT _1QDX9 st_Fn _2ti2i");
+    newTextArea.setAttribute("class", "KqSeh _3zGeZ _394fY RpiVp");
     newTextArea.setAttribute("data-gramm", "false");
     newTextArea.setAttribute("dir", "ltr");
     newTextArea.setAttribute("lang", "en");
@@ -192,7 +194,8 @@ function AddKeyboard() {
     AppendStyleSheet("textarea-placeholder", styleSheetContent);
     
     newTextAreaDiv.appendChild(newTextArea);
-    GetElementWithClass("tVzIv").parentElement.appendChild(newTextAreaDiv); // Put div inside the word bank and textarea parent
+    // Put div inside the word bank and textarea parent
+    GetElementWithData('word-bank').parentElement.appendChild(newTextAreaDiv)
             
     newTextArea.addEventListener("input", () => { EnableCheck(newTextArea.value != ""); });
 
@@ -313,7 +316,7 @@ function SetEndOfContentEditable(contentEditableElement)
 }
 
 function KeyboardCheck() {
-    if (GetElementWithData("player-next").ariaDisabled == "false" && GetElementWithClass("GE35t") != null) GetElementWithClass("GE35t").remove()
+    if (GetElementWithData("player-next").ariaDisabled == "false" && GetElementWithClass("_3fGeO") != null) GetElementWithClass("_3fGeO").remove()
     if (GetElementWithData("player-next").ariaDisabled == "true" || !IsCorrectExercise() || checked) return;
     checked = true;
     
