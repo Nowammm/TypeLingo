@@ -8,7 +8,9 @@ Introducing the ultimate solution for Duolingo learners who crave a seamless lan
 With just a click, this extension brings back the precious ability to type your responses in Duolingo's "Write this in English" exercise. Say farewell to the word bank's limitations and embrace the keyboard's full potential!
 
 **The extension isn't functioning correctly?**
+
 Try fully exiting Duolingo, then relaunch.
+
 If that proves futile, wait until a bug fix is available.
 
 # Building the source code
