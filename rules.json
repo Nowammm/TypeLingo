@@ -1,0 +1,13 @@
+[
+    {
+        "id": 3,
+        "priority": 1,
+        "action": {
+          "type": "block"
+        },
+        "condition": {
+          "urlFilter": "remove-heart",
+          "resourceTypes": ["main_frame", "sub_frame", "script", "xmlhttprequest"]
+        }
+    }
+]
