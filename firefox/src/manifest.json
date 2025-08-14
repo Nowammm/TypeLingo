@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+	"name": "TypeLingo",
+	"version": "1.0.0",
+	"developer": {
+		"name": "Nowam"
+	},
+	"description": "Duolingo typing restored! Get back the ability to type your responses.",
+
+	"icons": {
+		"128": "icons/128.png"
+	},
+
+	"background": {
+		"scripts": ["background.js"]
+	},
+
+	"permissions": ["*://*.duolingo.com/*", "*://d35aaqx5ub95lt.cloudfront.net/js/*.js", "webRequest", "webRequestBlocking"]
+}
