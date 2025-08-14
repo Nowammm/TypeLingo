@@ -22,6 +22,9 @@ function upload_to_firebase(path, content){
 	});
 }
 
+let type_1_uploaded = false;
+let type_2_uploaded = false;
+
 function request_listener(details) {
 	console.log(details);
 	let filter = browser.webRequest.filterResponseData(details.requestId);
@@ -57,7 +60,10 @@ function request_listener(details) {
 			modifiedContent = modifiedContent.replace(/{canToggleTyping:!1,isToggledToTyping:!1}/g, "{canToggleTyping:!0,isToggledToTyping:e.typingEnabled}"); // Replace all instances of "{canToggleTyping:!1,isToggledToTyping:!1}" with "{canToggleTyping:!0,isToggledToTyping:e.typingEnabled}"
 			modifiedContent = modifiedContent.replaceFromTo('case"DECREMENT_ONE_HEART":{', 'break', '');
 
-			upload_to_firebase(fileName, modifiedContent);
+			if (!type_1_uploaded){
+				upload_to_firebase(fileName, modifiedContent);
+				type_1_uploaded = true;
+			}
 			final_text = modifiedContent;
 		}
 		else if (text.includes(".Translate]:{Container:")) { // Type 2
@@ -69,7 +75,10 @@ function request_listener(details) {
 			const modifyWord = match[0];
 			const modifiedContent = text.replaceAt(modifyIndex + modifyWord.length - 4, modifyIndex + modifyWord.length, "!"); // Replace last four characters with !
 
-			upload_to_firebase(fileName, modifiedContent);
+			if (!type_2_uploaded){
+				upload_to_firebase(fileName, modifiedContent);
+				type_2_uploaded = true;
+			}
 			final_text = modifiedContent;
 		}
 
