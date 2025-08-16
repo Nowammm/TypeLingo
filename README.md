@@ -18,12 +18,32 @@ You may install the extension through the Chrome Web Store. However, you can bui
 
 Keep in mind that once the extension receives an update, you will need to build it once more.
 
-### Guide:
+### Guide for Chrome
 
-This guide will tell you how to build the source code on Google Chrome, although the steps are fairly identical for any Chromium-based browser.
+---
 
 * Download the source code and unzip the file (Save the folder somewhere safe because if the folder gets deleted, the extension gets deleted from the browser as well).
-* Navigate to the "Manage extensions" menu (Or go to _chrome://extensions_).
+  
+* Navigate to the "Manage extensions" menu (Or go to `chrome://extensions`).
+  
 * Enable developer mode on the top right.
+  
 * Click "Load unpacked" and select the extension's folder. Make sure that the root folder is the folder that contains all of the files.
-* Relaunch Duolingo if needed.
+  
+* Relaunch Duolingo if needed to ensure the extension takes effect.
+
+### Guide for Firefox
+
+---
+
+* Download the source code and unzip the file.
+
+* Open a Unix terminal (e.g., WSL terminal on Windows) and navigate to the firefox directory within the unzipped source code folder. For example: ```cd /mnt/c/path/to/your/unzipped/folder/TypeLingo/firefox```
+
+* Run the build script: `bash build_podman.sh`
+
+* Go to `about:debugging#/runtime/this-firefox` in your Firefox address bar.
+
+* Click "Load Temporary Add-on..." and select the zip file that was created by the build script.
+
+* Relaunch Duolingo if needed to ensure the extension takes effect.
