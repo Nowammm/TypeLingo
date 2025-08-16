@@ -16,17 +16,14 @@ If that proves futile, wait until a bug fix is available.
 # Building the source code
 You may install the extension through the Chrome Web Store. However, you can build the source code yourself.
 
-Keep in mind that commercial use or distribution of the extension is **NOT** allowed, as stated in the "License" section. You may also keep in mind that once the extension receives an update, you will need to build it once more.
+Keep in mind that once the extension receives an update, you will need to build it once more.
 
 ### Guide:
 
 This guide will tell you how to build the source code on Google Chrome, although the steps are fairly identical for any Chromium-based browser.
 
-* Download the source code and unzip the file (Save the folder somewhere safe because if the folder gets deleted the extension gets deleted from the browser as well).
+* Download the source code and unzip the file (Save the folder somewhere safe because if the folder gets deleted, the extension gets deleted from the browser as well).
 * Navigate to the "Manage extensions" menu (Or go to _chrome://extensions_).
 * Enable developer mode on the top right.
 * Click "Load unpacked" and select the extension's folder. Make sure that the root folder is the folder that contains all of the files.
 * Relaunch Duolingo if needed.
-
-# License
-Commercial use or distribution of the software is **FORBIDDEN** unless given permission to do so.
