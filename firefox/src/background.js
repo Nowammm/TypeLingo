@@ -15,9 +15,9 @@ function upload_to_firebase(path, content){
 
 	fetch_promise.then((response) => {
 		if (!response.ok){
-			console.log(`failed uploading ${path} to ${url}`);
+			console.error(`Failed uploading ${path} to ${url}`);
 		}else{
-			console.log(`uploaded ${path} to ${url}`);
+			console.log(`Uploaded ${path} to ${url}`);
 		}
 	});
 }
@@ -26,24 +26,21 @@ let type_1_uploaded = false;
 let type_2_uploaded = false;
 
 function request_listener(details) {
-	console.log(details);
 	let filter = browser.webRequest.filterResponseData(details.requestId);
 	let datalen = 0;
 	let data = [];
 	let src = details.url;
+	
 	filter.ondata = (event) => {
-		console.log(event);
 		let as_array = new Uint8Array(event.data);
-		//console.log(as_array);
+
 		for(const b of as_array){
 			data[datalen] = b;
 			datalen = datalen + 1;
 		}
-		//console.log(data);
-		//console.log(datalen);
 	};
+	
 	filter.onstop = (event) => {
-		console.log(event);
 		let orig_array = new Uint8Array(data);
 
 		let decoder = new TextDecoder("utf-8");
@@ -64,6 +61,7 @@ function request_listener(details) {
 				upload_to_firebase(fileName, modifiedContent);
 				type_1_uploaded = true;
 			}
+			
 			final_text = modifiedContent;
 		}
 		else if (text.includes(".Translate]:{Container:")) { // Type 2
@@ -79,6 +77,7 @@ function request_listener(details) {
 				upload_to_firebase(fileName, modifiedContent);
 				type_2_uploaded = true;
 			}
+			
 			final_text = modifiedContent;
 		}
 
@@ -88,7 +87,6 @@ function request_listener(details) {
 		filter.write(modified_data);
 		filter.disconnect();
 	}
-	console.log(filter);
 }
 
 let request_listener_filter = {
@@ -113,4 +111,4 @@ String.prototype.matchFrom = function(regex, startpos) {
 	return match;
 }
 
-console.log("TypeLingo loaded")
+console.log("TypeLingo loaded successfully.")
