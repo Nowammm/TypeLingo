@@ -1,5 +1,7 @@
 # TypeLingo
-**Get the extension here: [Chrome Web Store](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc)**
+**Get the Typelingo Extension:**  
+* [Chrome Web Store](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc)  
+* [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/typelingo)
 
 Duolingo typing restored! Get back the ability to type your responses.
 
