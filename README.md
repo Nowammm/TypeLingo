@@ -1,19 +1,35 @@
+<div align="center">
+
 # TypeLingo
-**Get the Typelingo Extension:**  
-* [Chrome Web Store](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc)  
-* [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/typelingo)
 
-Duolingo typing restored! Get back the ability to type your responses.
+**Stop hunting through word banks. Start typing.**
 
-Introducing the ultimate solution for Duolingo learners who crave a seamless language learning experience! If you've ever found yourself frustrated by the tedious task of searching for words in the word bank, worry no more.
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/lkfdecookegdklhpafhikjebeflcgepc?style=flat-square&logo=google-chrome&logoColor=white&label=Chrome%20Users)](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc)
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/lkfdecookegdklhpafhikjebeflcgepc?style=flat-square)](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc)
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/lkfdecookegdklhpafhikjebeflcgepc?style=flat-square&label=Chrome%20Version)](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc)
 
-With just a click, this extension brings back the precious ability to type your responses in Duolingo's "Write this in English" exercise. Say farewell to the word bank's limitations and embrace the keyboard's full potential!
+[![Mozilla Add-on Users](https://img.shields.io/amo/users/typelingo?style=flat-square&logo=firefox-browser&logoColor=white&label=Firefox%20Users)](https://addons.mozilla.org/en-US/firefox/addon/typelingo)
+[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/typelingo?style=flat-square)](https://addons.mozilla.org/en-US/firefox/addon/typelingo)
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/typelingo?style=flat-square&label=Firefox%20Version)](https://addons.mozilla.org/en-US/firefox/addon/typelingo)
 
-**The extension isn't functioning correctly?**
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nowam)
 
-Try fully exiting Duolingo, then relaunch.
+[Install for Chrome](https://chromewebstore.google.com/detail/typelingo/lkfdecookegdklhpafhikjebeflcgepc) | [Install for Firefox](https://addons.mozilla.org/en-US/firefox/addon/typelingo)
 
-If that proves futile, wait until a bug fix is available.
+</div>
+
+# What is TypeLingo?
+
+Frustrated by the word bank? This extension restores the ability to type in Duolingo translation exercises, letting you focus on the language, not the interface.
+
+**Why use it?**
+* Forces you to recall words from memory rather than recognizing them in a list.
+* Significantly speeds up lesson completion.
+* Lightweight and easy to toggle.
+
+**Experiencing issues?**
+
+Refresh the Duolingo tab or restart your browser. If a recent Duolingo update breaks functionality, a patch will be released as soon as possible.
 
 # Building the source code
 This is mainly done for development purposes. If you just want to use the extension normally, please install it through the store.
