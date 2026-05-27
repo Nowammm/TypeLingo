@@ -3,12 +3,11 @@
     "name": "TypeLingo",
     "author": "Nowam",
     "description": "Duolingo typing restored! Get back the ability to type your responses.",
-    "version": "1.1.6",
+    "version": "1.1.7",
     "permissions": ["storage", "tabs", "scripting", "declarativeNetRequestWithHostAccess"],
     "host_permissions": [
         "https://*.duolingo.com/*",
-        "https://d35aaqx5ub95lt.cloudfront.net/*",
-        "https://firebasestorage.googleapis.com/*"
+        "https://d35aaqx5ub95lt.cloudfront.net/*"
     ],
     "icons":
     {
