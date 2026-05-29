@@ -20,6 +20,13 @@ chrome.runtime.onMessage.addListener(
 );
 
 async function handleRedirects(sources) {
+    const stored = await chrome.storage.local.get(["type1_url", "type2_url"]);
+
+    if (stored.type1_url && stored.type2_url) {
+        const bothPresent = sources.includes(stored.type1_url) && sources.includes(stored.type2_url);
+        if (bothPresent) return false; // Rules already valid for these exact sources, no need to reload or update rules
+    }
+
     let type1, type2, modifiedType1, modifiedType2;
 
     for (const src of sources) {
