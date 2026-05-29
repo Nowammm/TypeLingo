@@ -36,7 +36,7 @@ async function handleRedirects(sources) {
             );
             modifiedContent = modifiedContent.replaceFromTo('case"DECREMENT_ONE_HEART":{', 'break', '');
 
-            await chrome.storage.local.set({ type1: modifiedContent });
+            await chrome.storage.local.set({ type1: modifiedContent, type1_url: src });
             modifiedType1 = contentToDataURL(modifiedContent);
         }
         else if (text.includes(".Translate]:{Container:")) {
@@ -57,16 +57,22 @@ async function handleRedirects(sources) {
                 "!"
             );
 
-            await chrome.storage.local.set({ type2: modifiedContent });
+            await chrome.storage.local.set({ type2: modifiedContent, type2_url: src });
             modifiedType2 = contentToDataURL(modifiedContent);
         }
     }
 
     // Fall back to storage if one type wasn't found in this pass
     if (!modifiedType1 || !modifiedType2) {
-        const stored = await chrome.storage.local.get(["type1", "type2"]);
-        if (!modifiedType1 && stored.type1) modifiedType1 = contentToDataURL(stored.type1);
-        if (!modifiedType2 && stored.type2) modifiedType2 = contentToDataURL(stored.type2);
+        const stored = await chrome.storage.local.get(["type1", "type2", "type1_url", "type2_url"]);
+        if (!modifiedType1 && stored.type1) {
+            modifiedType1 = contentToDataURL(stored.type1);
+            type1 = stored.type1_url;
+        }
+        if (!modifiedType2 && stored.type2) {
+            modifiedType2 = contentToDataURL(stored.type2);
+            type2 = stored.type2_url;
+        }
     }
 
     if (modifiedType1 && modifiedType2) {
